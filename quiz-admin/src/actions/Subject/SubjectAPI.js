@@ -7,3 +7,9 @@ export const createSubject = async (subject) => {
 
     return await axios.post(url, {name: subject.name, description: subject.description || ''})
 }
+
+export const fetchSubjects = async () => {
+    const url = `${URL}/subjects`
+
+    return await axios.get(url)
+}

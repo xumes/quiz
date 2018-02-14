@@ -1,5 +1,5 @@
 import { default as SubjectActions } from './SubjectAction' 
-import { createSubject } from './SubjectAPI' 
+import { createSubject, fetchSubjects } from './SubjectAPI' 
 
 export function thunkCreateSubject(subject) {
     return async (dispatch) => {
@@ -10,6 +10,21 @@ export function thunkCreateSubject(subject) {
         } catch (err) {
             dispatch(SubjectActions.createSubject(false))
             dispatch(SubjectActions.createError(true))
+        }
+        
+    }
+}
+
+export function thunkFetchSubjectList(subject) {
+    return async (dispatch) => {
+        dispatch(SubjectActions.fetchSubjects(true))
+        try {
+            let res = await fetchSubjects()
+            dispatch(SubjectActions.fetchSubjectsSuccess(res.data.subjects))
+        } catch (err) {
+            console.log(err)
+            dispatch(SubjectActions.fetchSubjects(false))
+            dispatch(SubjectActions.fetchSubjectsError(true))
         }
         
     }

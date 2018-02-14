@@ -1,9 +1,12 @@
 import { createActions } from 'reduxsauce' 
 
 const { Types, Creators } = createActions({
+    createSubject: null,
     createSuccess: ['subject'],
     createError: ['error'],
-    createSubject: null
+    fetchSubjects: null,
+    fetchSubjectsSuccess: ['subjects'],
+    fetchSubjectsError: ['error']
     
 })
 

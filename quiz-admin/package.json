@@ -1,10 +1,9 @@
 {
-  "name": "@coreui/react",
+  "name": "quiz-admin",
   "version": "1.0.10",
-  "description": "Open Source Bootstrap Admin Template",
-  "author": "Łukasz Holeczek",
-  "homepage": "http://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "description": "Sistema de Quiz - área administrativa",
+  "author": "Reginaldo Santos",
+  "homepage": "http://reginaldosantos.com.br",
   "license": "MIT",
   "private": true,
   "devDependencies": {
