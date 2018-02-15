@@ -4,7 +4,7 @@ import { SubjectTypes } from './../../actions/Subject/SubjectAction'
 
 export const INITIAL_STATE = Immutable({ 
     newSubject: {error: false, loading: false, subject: {name: '', description: ''}},
-    subjectList: {error: false, loading: false, subject: []}
+    subjectList: {error: false, loading: false, subjects: []}
 })
 
 export const createSuccess = (state = INITIAL_STATE, action) => {
