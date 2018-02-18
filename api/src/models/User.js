@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import bcrypt from 'bcrypt-nodejs'
 require('mongoose-type-email')
 
 const User = new mongoose.Schema({
@@ -19,5 +20,13 @@ const User = new mongoose.Schema({
         required: true
     }
 })
+
+User.methods.hasPassword = function(password){
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+}
+
+User.methods.validate = function(password, cb) {
+    return bcrypt.compare(password, this.password, cb)
+}
 
 export default mongoose.model('User', User)

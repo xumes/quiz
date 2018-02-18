@@ -2,18 +2,22 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
-import routes from './src/index'
 import mongoose from 'mongoose'
+import passport from 'passport'
 require('dotenv').config()
+import routes from './src/index'
+import configPassport from './src/auth/passport'
 
 const app = express();
 const PORT = process.env.PORT || 7000
 const HOST = process.env.HOST || 'localhost'
 
+configPassport(passport)
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
+app.use(passport.initialize())
 
 routes(app)
 
