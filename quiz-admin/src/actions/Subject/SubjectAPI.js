@@ -13,3 +13,10 @@ export const fetchSubjects = async () => {
 
     return await axios.get(url)
 }
+
+export const deleteSubject = async (subject) => {
+    const { _id } = subject
+    const url = `${URL}/subjects/${_id}`
+
+    return await axios.delete(url)
+}

@@ -6,7 +6,10 @@ const { Types, Creators } = createActions({
     createError: ['error'],
     fetchSubjects: null,
     fetchSubjectsSuccess: ['subjects'],
-    fetchSubjectsError: ['error']
+    fetchSubjectsError: ['error'],
+    deleteSubject: null,
+    deleteSubjectSuccess: null,
+    deleteSubjectError: ['error']
     
 })
 
