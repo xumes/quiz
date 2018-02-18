@@ -7,6 +7,7 @@ export function thunkCreateSubject(subject) {
         try {
             let res = await createSubject(subject)
             dispatch(SubjectActions.createSuccess(res.data))
+            dispatch(thunkFetchSubjectList())
         } catch (err) {
             dispatch(SubjectActions.createSubject(false))
             dispatch(SubjectActions.createError(true))
@@ -15,7 +16,7 @@ export function thunkCreateSubject(subject) {
     }
 }
 
-export function thunkFetchSubjectList(subject) {
+export function thunkFetchSubjectList() {
     return async (dispatch) => {
         dispatch(SubjectActions.fetchSubjects(true))
         try {
@@ -36,7 +37,7 @@ export function thunkDeleteSubject(subject) {
         try {
             let res = await deleteSubject(subject)
             dispatch(SubjectActions.deleteSubjectSuccess())
-            dispatch(thunkFetchSubjectList(subject))
+            dispatch(thunkFetchSubjectList())
         } catch (err) {
             console.log(err)
             dispatch(SubjectActions.deleteSubject(false))

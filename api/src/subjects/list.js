@@ -6,7 +6,7 @@ export default async (req, res) => {
         subjects = await Subject.find({})
         return res.json({subjects})
     } catch(err){
-        return res.json({subjects})
+        return res.status(500).json({err})
     }
     
 }

@@ -7,7 +7,7 @@ export default async (req, res) => {
         await subject.save()
         return res.status(201).json({subject})
     } catch(err) {
-        return res.status(500).json({subject})
+        return res.status(500).json({err})
     }
     
 }
