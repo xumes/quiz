@@ -11,7 +11,7 @@ export default async (req, res) => {
             return res.status(404)
                     .json({token: '', msg: 'User not found'})
         }
-        user.validate(password, (err, result) => {
+        user.validatePassword(password, (err, result) => {
             console.log(result)
             if (!result || err) {
                 return res.status(404)

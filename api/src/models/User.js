@@ -22,10 +22,10 @@ const User = new mongoose.Schema({
 })
 
 User.methods.hasPassword = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8))
 }
 
-User.methods.validate = function(password, cb) {
+User.methods.validatePassword = function(password, cb) {
     return bcrypt.compare(password, this.password, cb)
 }
 
