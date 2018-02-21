@@ -5,7 +5,8 @@ const Subject = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: String
+    description: String,
+    questions: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Answer'}]
 })
 
 export default mongoose.model('Subject', Subject)
