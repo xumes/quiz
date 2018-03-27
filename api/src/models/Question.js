@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
-const Answer = new mongoose.Schema({
+const Question = new mongoose.Schema({
     text: {
         type: String,
         required: true
     },
-    answers: [{
+    questions: [{
         text: {
             type: String,
             required: true
@@ -20,4 +20,4 @@ const Answer = new mongoose.Schema({
 
 })
 
-export default mongoose.model('Answer', Answer)
+export default mongoose.model('Question', Question)
