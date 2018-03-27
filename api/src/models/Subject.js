@@ -6,7 +6,7 @@ const Subject = new mongoose.Schema({
         required: true
     },
     description: String,
-    questions: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Answer'}]
+    questions: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Question'}]
 })
 
 export default mongoose.model('Subject', Subject)
