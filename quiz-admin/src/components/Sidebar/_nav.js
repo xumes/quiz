@@ -25,6 +25,23 @@ export default {
           icon: 'icon-speedometer'
         }
       ]
+    },
+    {
+      name: 'User',
+      url: '/user',
+      icon: 'icon-speedometer',
+      children: [
+        {
+          name: 'List',
+          url: '/user/list',
+          icon: 'icon-speedometer'
+        },
+        {
+          name: 'New',
+          url: '/user/new',
+          icon: 'icon-speedometer'
+        }
+      ]
     }
   ]
 };
