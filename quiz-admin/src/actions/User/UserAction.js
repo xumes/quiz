@@ -7,9 +7,9 @@ const { Types, Creators } = createActions({
     fetchUsers: null,
     fetchUsersSuccess: ['users'],
     fetchUsersError: ['error'],
-    deleteUser: null,
-    deleteUserSuccess: null,
-    deleteUserError: ['error']
+    // deleteUser: null,
+    // deleteUserSuccess: null,
+    // deleteUserError: ['error']
     
 })
 

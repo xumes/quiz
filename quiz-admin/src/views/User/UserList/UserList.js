@@ -6,30 +6,31 @@ import {
     CardHeader,
     CardBody,
     Table,
-    Button
+    Button,
+    Badge
 } from 'reactstrap'
 
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { thunkFetchUserList, thunkDeleteUser } from './../../../actions/User/UserThunk'
+import { thunkFetchUserList } from './../../../actions/User/UserThunk'
 
 class UserList extends Component {
     constructor(props) {
         super(props)
 
-        this.handleDeleteUser = this.handleDeleteUser.bind(this)
+        //this.handleDeleteUser = this.handleDeleteUser.bind(this)
     }
 
     componentDidMount(){
         this.props.fetchUserList()
     }
 
-    handleDeleteUser(user){
-        return this.props.deleteUser(user)
-    } 
+    // handleDeleteUser(user){
+    //     return this.props.deleteUser(user)
+    // } 
 
     render() {
-        console.log(this.props.userList)
+        console.log("Props: ", this.props.userList)
         let { userList } = this.props 
         return (
             <div className="animated fadeIn">
@@ -45,18 +46,21 @@ class UserList extends Component {
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Actions</th>
+                                            <th>Email</th>
+                                            <th>Active</th>
+                                            
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>                                        
                                         {userList.users.map((user, index) => (
                                              <tr key={user._id}>
                                              <td>{ user.name }</td>
-                                             <td>{ user.description }</td>
-                                             <td>
+                                             <td>{ user.email }</td>
+                                             <td>{ user.active ? <Badge color="primary">Active</Badge> : <Badge color="danger">Deactive</Badge> }</td>
+                                             {/*<td>
                                                  <Button color="warning" onClick={() => this.handleDeleteUser(user)}>Delete</Button>
-                                             </td>
+                                             </td>*/}
                                          </tr>  
                                         ))}
                                     </tbody>
@@ -73,14 +77,14 @@ class UserList extends Component {
 const mapStateToProps = (state) => {
     return {
         userList: state.userStore.userList,
-        deleteUser: state.userStore.deleteUser
+        //deleteUser: state.userStore.deleteUser
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchUserList: () => dispatch(thunkFetchUserList()),
-        deleteUser: (user) => dispatch(thunkDeleteUser(user))
+        //deleteUser: (user) => dispatch(thunkDeleteUser(user))
     }
 }
 

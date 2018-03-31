@@ -11,6 +11,7 @@ import Dashboard from '../../views/Dashboard/';
 import SubjectList from '../../views/Subject/SubjectList/SubjectList';
 import SubjectCreate from '../../views/Subject/SubjectCreate/SubjectCreate';
 import UserCreate from '../../views/User/UserCreate/UserCreate'
+import UserList from '../../views/User/UserList/UserList'
 
 class Full extends Component {
   render() {
@@ -26,6 +27,7 @@ class Full extends Component {
                 <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
                 <Route path="/subject/list" name="SubjectList" component={SubjectList}/>
                 <Route path="/subject/new" name="SubjectCreate" component={SubjectCreate}/>
+                <Route path="/user/list" name="UserList" component={UserList}/>
                 <Route path="/user/new" name="UserCreate" component={UserCreate}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
