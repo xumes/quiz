@@ -20,9 +20,9 @@ export const fetchUser = async (id) => {
     return await axios.get(url)
 }
 
-export const deleteUser = async (user) => {
-    const { _id } = user
+export const editUser = async (user) => {
+    let { _id } = user
     const url = `${URL}/users/${_id}`
 
-    return await axios.delete(url)
+    return await axios.put(url, { name: user.name, email: user.email, password: user.password, active: user.active })
 }

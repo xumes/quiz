@@ -45,18 +45,16 @@ export function thunkFetchUser(id) {
     }
 }
 
-export function thunkDeleteUser(user) {
+export function thunkEditUser(user) {
     return async (dispatch) => {
-        dispatch(UserActions.deleteUser(true))
+        dispatch(UserActions.editUser(true))
         try {
-            let res = await deleteUser(user)
-            dispatch(UserActions.deleteUserSuccess())
+            let res = await editUser(user)
+            dispatch(UserActions.editUserSuccess(res.data))
             dispatch(thunkFetchUserList())
         } catch (err) {
-            console.log(err)
-            dispatch(UserActions.deleteUser(false))
-            dispatch(UserActions.deleteUserError(true))
+            dispatch(UserActions.editUser(false))
+            dispatch(UserActions.editUserError(true))
         }
-        
     }
 }
