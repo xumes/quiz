@@ -14,6 +14,12 @@ export const fetchUsers = async () => {
     return await axios.get(url)
 }
 
+export const fetchUser = async (id) => {
+    const url = `${URL}/users/${id}`
+
+    return await axios.get(url)
+}
+
 export const deleteUser = async (user) => {
     const { _id } = user
     const url = `${URL}/users/${_id}`

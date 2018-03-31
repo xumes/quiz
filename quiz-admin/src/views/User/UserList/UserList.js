@@ -48,7 +48,7 @@ class UserList extends Component {
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Active</th>
-                                            
+                                            <th>Actions</th>
                                            
                                         </tr>
                                     </thead>
@@ -58,9 +58,10 @@ class UserList extends Component {
                                              <td>{ user.name }</td>
                                              <td>{ user.email }</td>
                                              <td>{ user.active ? <Badge color="primary">Active</Badge> : <Badge color="danger">Deactive</Badge> }</td>
-                                             {/*<td>
+                                             <td>
+                                             <Link className="btn btn-info" to={`/user/edit/${user._id}`}>Edit</Link>
                                                  <Button color="warning" onClick={() => this.handleDeleteUser(user)}>Delete</Button>
-                                             </td>*/}
+                                             </td>
                                          </tr>  
                                         ))}
                                     </tbody>

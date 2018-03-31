@@ -5,7 +5,7 @@ import { UserTypes } from './../../actions/User/UserAction'
 export const INITIAL_STATE = Immutable({
     newUser: { error: false, loading: false, user: { name: '', email: '', password: '' } },
     userList: { error: false, loading: false, users: [] },
-    deleteUser: { error: false, loading: false, users: {} }
+    editUser: { error: false, loading: false, user: {} }
 })
 
 //CREATE
@@ -34,18 +34,31 @@ export const fetchUsersError = (state = INITIAL_STATE, action) => {
     return { ...state, userList: { error: true, loading: false, users: [] } }
 }
 
-// //DELETE
-// export const deleteUser = (state = INITIAL_STATE, action) => {
-//     return { ...state, deleteUser: { error: false, loading: true, users: {} } }
-// }
+//EDIT USER
+export const editUser = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: false, loading: true, user: {} } }
+}
 
-// export const deleteUserSuccess = (state = INITIAL_STATE, action) => {
-//     return { ...state, deleteUser: { error: false, loading: false, users: action.users } }
-// }
+export const editUserSuccess = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: false, loading: false, user: action.user } }
+}
 
-// export const deleteUserError = (state = INITIAL_STATE, action) => {
-//     return { ...state, deleteUser: { error: true, loading: false, users: {} } }
-// }
+export const editUserError = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: true, loading: false, user: {} } }
+}
+
+//FETCH USER
+export const fetchUser = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: false, loading: true, user: {} } }
+}
+
+export const fetchUserSuccess = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: false, loading: false, user: action.user } }
+}
+
+export const fetchUserError = (state = INITIAL_STATE, action) => {
+    return { ...state, editUser: { error: true, loading: false, user: {} } }
+}
 
 export const HANDLER = {
     [UserTypes.CREATE_SUCCESS]: createSuccess,
@@ -54,9 +67,12 @@ export const HANDLER = {
     [UserTypes.FETCH_USERS]: fetchUsers,
     [UserTypes.FETCH_USERS_SUCCESS]: fetchUsersSuccess,
     [UserTypes.FETCH_USERS_ERROR]: fetchUsersError,
-    // [UserTypes.DELETE_USER]: deleteUser,
-    // [UserTypes.DELETE_USER_SUCCESS]: deleteUserSuccess,
-    // [UserTypes.DELETE_USER_ERROR]: deleteUserError
+    [UserTypes.EDIT_USER]: editUser,
+    [UserTypes.EDIT_USER_SUCCESS]: editUserSuccess,
+    [UserTypes.EDIT_USER_ERROR]: editUserError,
+    [UserTypes.FETCH_USER]: fetchUser,
+    [UserTypes.FETCH_USER_SUCCESS]: fetchUserSuccess,
+    [UserTypes.FETCH_USER_ERROR]: fetchUserError
 }
 
 export default createReducer(INITIAL_STATE, HANDLER)

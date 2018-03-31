@@ -1,4 +1,4 @@
-import { createActions } from 'reduxsauce' 
+import { createActions } from 'reduxsauce'
 
 const { Types, Creators } = createActions({
     createUser: null,
@@ -7,10 +7,13 @@ const { Types, Creators } = createActions({
     fetchUsers: null,
     fetchUsersSuccess: ['users'],
     fetchUsersError: ['error'],
-    // deleteUser: null,
-    // deleteUserSuccess: null,
-    // deleteUserError: ['error']
-    
+    fetchUser: ["id"],
+    fetchUserSuccess: ['user'],
+    fetchUserError: ['error'],
+    editUser: null,
+    editUserSuccess: null,
+    editUserError: ['error']
+
 })
 
 export const UserTypes = Types
