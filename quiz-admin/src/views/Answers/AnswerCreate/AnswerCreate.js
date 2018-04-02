@@ -14,7 +14,7 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { thunkCreateAnswer } from './../../../actions/Answer/AnswerThunk'
-import {thunkFetchQuestionList} from './../../../actions/Question/QuestionThunk' 
+import { thunkFetchQuestionList } from './../../../actions/Question/QuestionThunk'
 
 class AnswerCreate extends Component {
     constructor(props) {
@@ -48,6 +48,11 @@ class AnswerCreate extends Component {
     }
 
     render() {
+
+        const renderOptions = this.props.questionList.map((question) => {
+            return (<option key={question._id} value={question._id}>{question.text}</option>)
+        })
+
         return (
             <div className="animated fadeIn">
                 <Row>
@@ -58,16 +63,23 @@ class AnswerCreate extends Component {
                             </CardHeader>
                             <CardBody>
                                 <Form>
+                                    {/* <FormGroup>
+                                        <Label htmlFor="question">Question:</Label>
+                                        <Input type="select" name="question" placeholder="Select a question:" onChange={this.handleChangeInput}>
+                                            {renderOptions}
+                                        </Input>
+                                    </FormGroup>
+                                    */}
                                     <FormGroup>
                                         <Label htmlFor="name">Answer Text:</Label>
                                         <Input type="text" name="text" placeholder="Enter answer text:" onChange={this.handleChangeInput}></Input>
                                     </FormGroup>
                                     <FormGroup check>
                                         <Label check>
-                                                <Input type="checkbox" name="correct" onChange={this.handleChangeInput} />
-                                                Correct?
+                                            <Input type="checkbox" name="correct" onChange={this.handleChangeInput} />
+                                            Correct?
                                         </Label>
-                                    </FormGroup>                                    
+                                    </FormGroup>
                                 </Form>
                             </CardBody>
                             <CardFooter>
@@ -83,7 +95,8 @@ class AnswerCreate extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        newAnswer: state.answerStore.newAnswer
+        newAnswer: state.answerStore.newAnswer,
+        questionList: state.questionStore.questionList.questions
     }
 }
 

@@ -16,7 +16,7 @@ class AnswerList extends Component {
     constructor(props) {
         super(props)
 
-        this.state = { answers: [] }
+        this.state = {answers: []}
 
         this.handleDeleteAnswer = this.handleDeleteAnswer.bind(this)
     }
@@ -24,6 +24,7 @@ class AnswerList extends Component {
     componentDidMount() {
         if (!this.props.location.state) {
             return this.props.history.push('/question/list')
+            ///// mudar aqui para redirecionar a roat após deletar
         }
 
         return this.setState({
@@ -41,14 +42,15 @@ class AnswerList extends Component {
     render() {
         let { answers } = this.state
         let questionId = this.props.match.params.id
-        
+        let questionText = this.props.location.state.question.text || 'Question'
+        console.log("props question text!!!!!: ", this.props.location.state.question.text)
         return (
             <div className="animated fadeIn">
                 <Row>
                     <Col xs="12" md="12">
                         <Card>
                             <CardHeader>
-                                Listing
+                                {questionText}
                             </CardHeader>
                             <CardBody>
                                 <Link to={`/question/${questionId}/answer/new`} className="btn btn-primary mb-4">Create new answer</Link>

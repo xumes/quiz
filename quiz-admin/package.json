@@ -36,7 +36,7 @@
     "chart.js": "2.7.1",
     "flag-icon-css": "2.9.0",
     "font-awesome": "4.7.0",
-    "history": "4.7.2",
+    "history": "^4.7.2",
     "react": "16.2.0",
     "react-chartjs-2": "2.7.0",
     "react-dom": "16.2.0",

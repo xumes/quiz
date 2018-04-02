@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux'
+import { history } from './routes'
 
 // Styles
 // Import Flag Icons Set
@@ -17,17 +18,20 @@ import '../scss/core/_dropdown-menu-right.scss'
 
 // Containers
 import Full from './containers/Full/'
+import Login from './views/Login'
+import { PrivateRouter } from './components/PrivateRouter'
 
 import cfgStore from './store'
 const store = cfgStore()
 
 ReactDOM.render((
   <Provider store={store}>
-    <HashRouter>
+    <Router history={history}>
       <Switch>
-        <Route path="/" name="Home" component={Full} />
+        <Route path="/login" exact name="Login" component={Login} />
+        <PrivateRouter path="/" name="Home" component={Full} />
       </Switch>
-    </HashRouter>
+    </Router>
   </Provider>
 
 ), document.getElementById('root'));

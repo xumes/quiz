@@ -20,7 +20,8 @@ module.exports = (env = {}) => {
     },
     output: {
       path: BUILD_DIR,
-      filename: '[name].bundle.js'
+      filename: '[name].bundle.js',
+      publicPath: '/'
     },
     // watch: true,
     devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
@@ -28,6 +29,7 @@ module.exports = (env = {}) => {
       contentBase: BUILD_DIR,
       //   port: 9001,
       compress: true,
+      historyApiFallback: true,
       hot: true,
       open: true
     },

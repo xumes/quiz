@@ -1,3 +1,5 @@
+import { createBrowserHistory } from 'history'
+
 const routes = {
   '/': 'Home',
   '/dashboard': 'Dashboard',
@@ -7,3 +9,4 @@ const routes = {
   '/user/new': 'New User'
 };
 export default routes;
+export const history = createBrowserHistory()
