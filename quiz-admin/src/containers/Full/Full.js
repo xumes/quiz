@@ -13,6 +13,7 @@ import SubjectCreate from '../../views/Subject/SubjectCreate/SubjectCreate';
 import UserCreate from '../../views/User/UserCreate/UserCreate'
 import UserList from '../../views/User/UserList/UserList'
 import UserEdit from '../../views/User/UserEdit/UserEdit'
+import QuestionCreate from '../../views/Questions/QuestionsCreate/QuestionsCreate'
 
 class Full extends Component {
   render() {
@@ -31,6 +32,7 @@ class Full extends Component {
                 <Route path="/user/list" name="UserList" component={UserList}/>
                 <Route path="/user/new" name="UserCreate" component={UserCreate}/>
                 <Route path="/user/edit/:id" name="UserEdit" component={UserEdit}/>
+                <Route path="/question/new/" name="UserEdit" component={QuestionCreate}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>

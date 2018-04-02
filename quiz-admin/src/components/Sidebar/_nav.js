@@ -42,6 +42,23 @@ export default {
           icon: 'icon-speedometer'
         }
       ]
+    },
+    {
+      name: 'Question',
+      url: '/question',
+      icon: 'icon-speedometer',
+      children: [
+        {
+          name: 'List',
+          url: '/question/list',
+          icon: 'icon-speedometer'
+        },
+        {
+          name: 'New',
+          url: '/question/new',
+          icon: 'icon-speedometer'
+        }
+      ]
     }
   ]
 };
