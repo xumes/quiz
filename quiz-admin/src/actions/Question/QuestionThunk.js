@@ -20,8 +20,10 @@ export function thunkFetchQuestionList() {
         dispatch(QuestionActions.fetchQuestions(true))
         try {
             let res = await fetchQuestions()
+            console.log("questions thunk:" , res.data)
             dispatch(QuestionActions.fetchQuestionsSuccess(res.data.questions))
         } catch (err) {
+            console.log("Deu ruim:" , err)
             dispatch(QuestionActions.fetchQuestions(false))
             dispatch(QuestionActions.fetchQuestionsError(true))
         }

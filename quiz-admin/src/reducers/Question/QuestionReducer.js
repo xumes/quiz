@@ -25,6 +25,7 @@ export const fetchQuestions = (state = INITIAL_STATE, action) => {
 }
 
 export const fetchQuestionsSuccess = (state = INITIAL_STATE, action) => {
+    console.log("inside fetchQuestionsSuccess", action)
     return { ...state, questionList: { error: false, loading: false, questions: action.questions } }
 }
 

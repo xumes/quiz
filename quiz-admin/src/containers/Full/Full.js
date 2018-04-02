@@ -14,6 +14,9 @@ import UserCreate from '../../views/User/UserCreate/UserCreate'
 import UserList from '../../views/User/UserList/UserList'
 import UserEdit from '../../views/User/UserEdit/UserEdit'
 import QuestionCreate from '../../views/Questions/QuestionsCreate/QuestionsCreate'
+import QuestionList from '../../views/Questions/QuestionList/QuestionList'
+import AnswerCreate from '../../views/Answers/AnswerCreate/AnswerCreate'
+import AnswerList from '../../views/Answers/AnswerList'
 
 class Full extends Component {
   render() {
@@ -32,7 +35,10 @@ class Full extends Component {
                 <Route path="/user/list" name="UserList" component={UserList}/>
                 <Route path="/user/new" name="UserCreate" component={UserCreate}/>
                 <Route path="/user/edit/:id" name="UserEdit" component={UserEdit}/>
-                <Route path="/question/new/" name="UserEdit" component={QuestionCreate}/>
+                <Route path="/question/new/" name="QuestionCreate" component={QuestionCreate}/>
+                <Route path="/question/list/" name="QuestionList" component={QuestionList}/>
+                <Route path="/question/:id/answer/new" name="AnswerCreate" component={AnswerCreate} />
+                <Route path="/question/:id/answer/list" name="AnswerList" component={AnswerList} />
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>
