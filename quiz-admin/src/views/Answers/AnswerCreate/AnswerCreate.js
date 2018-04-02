@@ -14,6 +14,7 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { thunkCreateAnswer } from './../../../actions/Answer/AnswerThunk'
+import {thunkFetchQuestionList} from './../../../actions/Question/QuestionThunk' 
 
 class AnswerCreate extends Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class AnswerCreate extends Component {
 
         this.handleChangeInput = this.handleChangeInput.bind(this)
         this.handleCreate = this.handleCreate.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.fetchQuestionList()
     }
 
     handleChangeInput(event) {

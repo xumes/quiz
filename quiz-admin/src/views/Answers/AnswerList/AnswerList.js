@@ -40,6 +40,7 @@ class AnswerList extends Component {
 
     render() {
         let { answers } = this.state
+        let questionId = this.props.match.params.id
         
         return (
             <div className="animated fadeIn">
@@ -50,7 +51,7 @@ class AnswerList extends Component {
                                 Listing
                             </CardHeader>
                             <CardBody>
-                                <Link to="/question/new" className="btn btn-primary mb-4">Create new question</Link>
+                                <Link to={`/question/${questionId}/answer/new`} className="btn btn-primary mb-4">Create new answer</Link>
                                 <Table responsive>
                                     <thead>
                                         <tr>

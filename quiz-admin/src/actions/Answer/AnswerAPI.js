@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const URL = 'http://localhost:3000'
+const URL = 'http://localhost:7000'
 
 export const createAnswer = async (answer) => {
     const url = `${URL}/questions/${answer.question}/answers`
